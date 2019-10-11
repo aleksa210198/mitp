@@ -3,7 +3,8 @@
 #include <time.h>   
  
  
-using namespace std;
+using std::cout;
+using std::cin;
  
  
 void free_array(int** arr, const int N, const int M) /// delete memory
