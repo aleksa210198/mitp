@@ -8,7 +8,8 @@ using namespace std;
  
 void free_array(int** arr, const int N, const int M) /// delete memory
 {
-	for (int i = 0; i<N; i++) delete[]arr[i];
+	for (int i = 0; i<N; i++) 
+		delete[]arr[i];
 	delete[]arr;
 	arr = 0;         
 } 
@@ -16,10 +17,12 @@ void free_array(int** arr, const int N, const int M) /// delete memory
 
 int** init_array(int** arr, const int N, const int M) /// init memory
 {
-	if (arr) free_array(arr, N, M);    
+	if (arr)
+		free_array(arr, N, M);    
  
 	arr = new int*[N];
-	for (int i = 0; i<N; i++) arr[i] = new int[M];
+	for (int i = 0; i<N; i++) 
+		arr[i] = new int[M];
 	return arr;
 } 
  
