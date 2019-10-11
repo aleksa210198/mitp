@@ -63,7 +63,7 @@ void worked_with_array(int** arr, const int N, const int M) /// Added a function
 }
  
  
-int main(int argc, char** argv) ///
+int main(int argc, char** argv)
 {
 	srand(unsigned(time(NULL)));    
 	int** my_array = 0;
