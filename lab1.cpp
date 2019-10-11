@@ -12,7 +12,6 @@ void free_array(int** arr, const int N, const int M) /// delete memory
 	delete[]arr;
 	arr = 0;         
 } 
- 
 
 
 int** init_array(int** arr, const int N, const int M) /// init memory
@@ -24,6 +23,7 @@ int** init_array(int** arr, const int N, const int M) /// init memory
 	return arr;
 } 
  
+
 void fill_array(int** arr, const int N, const int M) /// fill memory
 {
 	for (int i = 0; i<N; i++)
@@ -67,8 +67,6 @@ int main(int argc, char** argv) ///
  
 	int row = 9;
 	int col = 20;
- 
-
  
 	worked_with_array(my_array, row, col);
  
