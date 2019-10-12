@@ -7,32 +7,32 @@ using std::cout;
 using std::cin;
  
  
-void free_array(int** arr, const int N, const int M) /// delete memory
+void free_array(int** arr, const int n, const int m) /// Function for stripping memory
 {
-	for (int i = 0; i<N; i++) 
+	for (int i = 0; i<n; i++) 
 		delete[]arr[i];
 	delete[]arr;
-	arr = 0;         
+	arr = 0; /// Indicated that the memory area is now free
 } 
 
 
-int** init_array(int** arr, const int N, const int M) /// init memory
+int** init_array(int** arr, const int n, const int m) /// Function to allocate memory
 {
 	if (arr)
-		free_array(arr, N, M);    
+		free_array(arr, n, m);    /// If previously memory was allocated, clean it
  
-	arr = new int*[N];
-	for (int i = 0; i<N; i++) 
-		arr[i] = new int[M];
+	arr = new int*[n];
+	for (int i = 0; i<n; i++) 
+		arr[i] = new int[m];
 	return arr;
 } 
  
 
-void fill_array(int** arr, const int N, const int M) /// fill memory
+void fill_array(int** arr, const int n, const int m) /// Function to fill an array with random elements
 {
-	for (int i = 0; i<N; i++)
+	for (int i = 0; i<n; i++)
 	{
-		for (int j = 0; j<M; j++) 
+		for (int j = 0; j<m; j++) 
 		{
 			arr[i][j] = rand() % 100;
 		}
@@ -40,33 +40,33 @@ void fill_array(int** arr, const int N, const int M) /// fill memory
 } 
 
 
-void print_array(int** arr, const int N, const int M)  /// output to the screen
+void print_array(int** arr, const int n, const int m)  /// Function to display the array on the screen
 {
-	cout << "array " << N << ',' << M << ":\n";
-	for (int i = 0; i<N; i++) 
+	cout << "array " << n << ',' << m << ":\n";
+	for (int i = 0; i<n; i++) 
 	{
-		for (int j = 0; j<M; j++) 
+		for (int j = 0; j<m; j++) 
 		{
 			cout << arr[i][j];
-			cout.width(5);
+			cout.width(5); /// Set the minimum width of the output field
 		}   cout << '\n';
 	}
 	cout << "\n\n";
 } 
  
   
-void worked_with_array(int** arr, const int N, const int M) /// Added a function that combines the same sequence of calls
+void worked_with_array(int** arr, const int n, const int m) /// Added a function that combines the same sequence of calls
 {
-	arr = init_array(arr, N, M);							
-	fill_array(arr, N, M);									
-	print_array(arr, N, M);	                                
-	free_array(arr, N, M);									
+	arr = init_array(arr, n, m); /// Allocated memory, assign it to the pointer							
+	fill_array(arr, n, m); /// Called the function and filled the array with values								
+	print_array(arr, n, m);	/// Called the function and output the array values to the screen                                
+	free_array(arr, n, m);	/// Called the function and destroyed the array						
 }
  
  
 int main(int argc, char** argv)
 {
-	srand(unsigned(time(NULL)));    
+	srand(unsigned(time(NULL))); /// Generated a random number using the time function 
 	int** my_array = 0;
  
 	int row = 9;
